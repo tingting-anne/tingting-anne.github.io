@@ -15,3 +15,4 @@ date: 2016-08-31 15:32:24.000000000 +08:00
 *   ServerTrustPolicyManager 默认为 nil， 可以根据需要设置校验策略（验证默认证书连、自制证书、公钥等）。
 *   TaskDelegate 的 queue 为请求结束时的操作队列。
 *   Request 类提供控制请求和结果回调的 API，可以调用 response 系列接口，设置请求结束后的回调函数。此外，它还提供一些基本的结果序列化接口。
+*   MultipartFormData 类用于上传。其中 encode 在内存中编码，直接返回 NSData, 用于小数据；writeEncodedDataToDisk: 通过 I/O stream 的方式读取并将结果写入指定文件，用于大数据；在 Manager 的 upload 系列函数中提供了 encodingMemoryThreshold 参数以设置这个阀值。
